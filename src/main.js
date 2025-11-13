@@ -33,7 +33,7 @@ const statementPanels = [
     heading: 'Martín Escalante',
     copy: 'Antes de empezar el proyecto sentía que mi marca estaba estancada. Tenía ideas, pero no sabía cómo organizarlas ni comunicar mi valor. El proceso fue súper claro y humano: entendieron exactamente qué quería transmitir y lo transformaron en una identidad visual increíble. Hoy recibo mensajes de clientes diciendo ‘ahora sí te veo profesional’. Definitivamente fue un antes y un después para mi negocio.',
     avatar: {
-      src: 'public/portrait-man-laughing.jpg',
+      src: 'https://images.unsplash.com/photo-1623184663110-89ba5b565eb6?q=80&w=812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Creative strategist portrait',
     },
   },
