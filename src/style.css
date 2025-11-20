@@ -11,6 +11,7 @@
   --card-bg: #050505;
   --card-border: rgba(255, 255, 255, 0.12);
   --yellow: #f7a500;
+  --top-bar-offset: clamp(72px, 9vh, 120px);
   font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -145,6 +146,8 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: 80vh;
+  width: 100%;
+  align-items: stretch;
 }
 
 .hero-media {
@@ -645,45 +648,97 @@ body.no-scroll {
 
 .footer-top {
   display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
 }
 
 .footer-brand {
-  flex: 1;
-  min-width: 250px;
-}
-
-.footer-brand h3 {
-  font-size: 1.6rem;
-  line-height: 1.3;
-  text-transform: uppercase;
-  font-family: 'Archivo Black', 'Space Grotesk', sans-serif;
-}
-
-.footer-menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  flex: 1;
-}
-
-.footer-column h4 {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--muted);
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 220px;
+}
+
+.footer-logo {
+  font-family: 'Archivo Black', 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-logo span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 0.25em;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.social-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #151515;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-white);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  background: #1f1f1f;
+  color: var(--accent);
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.footer-contact {
+  text-align: right;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.footer-contact p {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.footer-contact a {
+  color: var(--brand-white);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  color: var(--accent);
 }
 
 .footer-bottom {
@@ -691,12 +746,32 @@ body.no-scroll {
   margin-top: 2rem;
   padding-top: 1.5rem;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-socials {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .footer-contact {
+    text-align: left;
+  }
 }
 
 .floating-whatsapp {
@@ -727,6 +802,20 @@ body.no-scroll {
 
 #preguntas {
   scroll-margin-top: 80px; /* o la altura de tu header */
+}
+
+@media (min-width: 961px) {
+  .hero {
+    min-height: calc(100vh - var(--top-bar-offset));
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-media {
+    order: 2;
+  }
 }
 
 @media (max-width: 960px) {
